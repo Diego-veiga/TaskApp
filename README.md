@@ -1,27 +1,81 @@
-# TaskApp
+# Desafio Técnico - SWFAST
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.16.
+## Descrição
 
-## Development server
+Este projeto foi desenvolvido como parte de um desafio técnico, com o objetivo de demonstrar habilidades práticas em desenvolvimento de aplicações front-end. A proposta consiste na construção de uma interface web utilizando Angular, focada na gestão de tarefas do dia a dia.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+A aplicação permite ao usuário criar, visualizar, atualizar e excluir tarefas, com informações como título, descrição e data de conclusão prevista. As tarefas são listadas de forma organizada por status (pendentes e concluídas), e o status pode ser alterado conforme a necessidade do usuário.
 
-## Code scaffolding
+Este projeto consome uma API desenvolvida em C# com banco de dados Microsoft SQL Server, conforme especificado no desafio, e está disponível publicamente no GitHub para avaliação.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Tabela de conteúdos
 
-## Running unit tests
+<!--ts-->
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- [Pré-requisitos](#requisito)
+- [Execução do projeto](#execucao)
+- [Funcionalidade](#funcionalidade)
+- [Tecnologias](#tecnologias)
+- [Autor](#autor)
+<!--te-->
 
-## Running end-to-end tests
+<h2 id="requisito">Pré-requisitos</h2>
+Para rodar a aplicação, você precisará ter instalado na sua máquina:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- **Node.js** na versão 20.19.1 ou superior. Caso ainda não tenha, você pode baixar e instalar através do site [Node](https://nodejs.org/pt/download)
 
-## Further help
+- **Angular CLI** na versão 17. Se ainda não estiver instalado, utilize o comando abaixo para instalar globalmente:
+```bash
+ npm install -g @angular/cli@17
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<h2 id="execucao">Execução do projeto</h2>
+
+Para executar o projeto, siga os seguintes passos:
+
+#### Clone o projeto
+
+    Repositório https://github.com/Diego-veiga/TaskApp
+
+
+### Execução 
+
+#### Instale as dependências
+
+```bash
+npm i
+```
+#### Inicie a aplicação:
+
+```bash
+npm run start
+```
+Ou
+```bash
+ng serve -o
+```
+A aplicação será aberta automaticamente no navegador no endereço `http://localhost:4200`. Caso isso não ocorra, você pode copiar e colar essa URL manualmente no navegador para acessar a aplicação.
+
+<h2 id="funcionalidade">Funcionalidades</h2>
+
+- ✅ Criar novas tarefas com título, descrição e data prevista de conclusão<br> 
+- 📋 Listar tarefas separadas por status: pendentes e concluídas<br> 
+- 🔄 Alterar status de uma tarefa entre pendente e concluída<br> 
+- 🗑️ Excluir tarefas<br> 
+
+## Tecnologias
+
+- [Node.js](https://nodejs.org/en/)
+- [Angular](https://angular.dev/)
+- [Angular Material](https://material.angular.dev/)
+- [Typescript](https://www.typescriptlang.org/docs/)
+- [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+
+## Autor
+
+<a href="https://www.linkedin.com/in/diegorobertoveiga/">
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/62670446?s=400&u=ce360c7bc3872fde7996a64a630c3a44ecb1ed30&v=4" width="100px;" alt=""/>
+ <br />
+ <sub><b>Diego Veiga</b></sub></a> <a href="https://www.linkedin.com/in/diegorobertoveiga/" title="Diego Veiga">🚀</a>
