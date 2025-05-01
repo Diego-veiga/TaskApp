@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Task } from '../../interfaces/task';
 import { TaskService } from '../../services/task.service';
 import { ModalViewTaskComponent } from './modal-view-task/modal-view-task.component';
+import { ModalCreateEditTaskComponent } from './modal-create-edit-task/modal-create-edit-task.component';
 
 @Component({
   selector: 'app-tasks',
@@ -53,14 +54,29 @@ export class TasksComponent {
       data: task,
     });
   }
+
   openModalCreateTask() {
-    console.log('**************openModalCreateTask');
-  }
-  openModalDeleteTask(task: Task) {
-    console.log('**************openModalDeleteTask');
+    this.modal
+      .open(ModalCreateEditTaskComponent, {
+        width: '700px',
+        height: '500px',
+      })
+      .afterClosed()
+      .subscribe(() => this.ngOnInit());
   }
 
   openModalEditTask(task: Task) {
+    this.modal
+      .open(ModalCreateEditTaskComponent, {
+        width: '700px',
+        height: '500px',
+        data: task,
+      })
+      .afterClosed()
+      .subscribe(() => this.ngOnInit());
+  }
+
+  openModalDeleteTask(task: Task) {
     console.log('**************openModalDeleteTask');
   }
 }

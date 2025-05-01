@@ -1,0 +1,73 @@
+<div class="container-fluid p-3">
+  <mat-icon class="float-end hover" (click)="closeModal()">close</mat-icon>
+
+  <h1 class="titulo" *ngIf="!data">Cadastrar tarefa</h1>
+  <h1 class="titulo" *ngIf="data">Atualizar status da Tarefa</h1>
+  <h2 class="subtitulo" *ngIf="!data">
+    Preencha o formulário para cadastrar uma tarefa
+  </h2>
+
+  <form class="row mt-3" [formGroup]="formTask">
+    <div class="col-6 col-md-6 mb-2">
+      <mat-form-field class="example-full-width w-100">
+        <mat-label>Título</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Digite o Título "
+          formControlName="title"
+        />
+        @if (formTask.controls['title'].invalid) {
+        <mat-error>Por favor digite um titulo</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div class="col-6 col-md-6 mb-2">
+      <mat-form-field class="example-full-width w-100">
+        <mat-label>Data prevista para conclusão</mat-label>
+        <input
+          matInput
+          type="date"
+          placeholder="Digite a data de conclusão"
+          [min]="minimumDate"
+          formControlName="expectedCompletionDate"
+        />
+        @if (formTask.controls['expectedCompletionDate'].invalid) {
+        <mat-error>Por favor digite uma data valida</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div *ngIf="data" class="col-6 col-md-6 mb-2">
+      <mat-form-field class="example-full-width w-100">
+        <mat-select formControlName="status">
+          @for(status of taskStatus; track status){
+          <mat-option [value]="status.value">{{ status.viewValue }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field class="example-full-width w-100">
+      <mat-label>Descrição</mat-label>
+      <textarea
+        matInput
+        placeholder="Digite a descrição"
+        formControlName="description"
+      ></textarea>
+      @if (formTask.controls['description'].invalid) {
+      <mat-error>Por favor uma descricao</mat-error>
+      }
+    </mat-form-field>
+
+    <div class="col-12">
+      <button
+        class="botao-primario float-end"
+        [disabled]="data?.id ? false : !formTask.valid"
+        (click)="data?.id ? update() : save()"
+      >
+        {{ data?.id ? "Atualizar" : "Salvar" }}
+      </button>
+    </div>
+  </form>
+</div>
+

@@ -17,6 +17,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalViewTaskComponent } from './pages/tasks/modal-view-task/modal-view-task.component';
+import { ModalCreateEditTaskComponent } from './pages/tasks/modal-create-edit-task/modal-create-edit-task.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ModalViewTaskComponent } from './pages/tasks/modal-view-task/modal-view
     ButtonComponent,
     TasksComponent,
     ModalViewTaskComponent,
+    ModalCreateEditTaskComponent,
   ],
   imports: [
     BrowserModule,
