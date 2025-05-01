@@ -18,7 +18,7 @@ export class TasksComponent {
   dataSource: any;
   listTasks: Task[];
   displayedColumns: string[] = [
-    'id',
+
     'title',
     'status',
     'expectedCompletionDate',
