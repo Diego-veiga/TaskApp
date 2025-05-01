@@ -2,7 +2,7 @@ import { Task } from '../interfaces/task';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { HttpRequestService } from './http-request.service';
-import { format } from 'date-fns';
+import { format, isBefore, parse, startOfDay } from 'date-fns';
 
 @Injectable({
   providedIn: 'root',
@@ -21,14 +21,18 @@ export class TaskService {
   }
 
   validate(task: Task) {
-    const actualDate = new Date();
-    const expected = new Date(task.expectedCompletionDate);
+    const today = startOfDay(new Date());
+    const expected = parse(
+      task.expectedCompletionDate,
+      'yyyy-MM-dd',
+      new Date()
+    );
 
     if (!task || !task.description || !task.title) {
       throw new Error('Task inválida');
     }
 
-    if (expected.getTime() < actualDate.getTime()) {
+    if (isBefore(expected, today)) {
       throw new Error('Data inválida');
     }
   }
