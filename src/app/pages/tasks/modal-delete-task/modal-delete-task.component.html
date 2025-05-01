@@ -1,0 +1,13 @@
+<div class="container-fluid p-3">
+  <h1 class="titulo">Deseja realmente remover esta tarefa?</h1>
+  <h2 class="subtitulo">Esta ação não poderá ser desfeita.</h2>
+
+  <div class="row mt-4 justify-content-end">
+    <div class="col-auto">
+      <app-button textButton="Sim" class="float-end" (click)="confirmRemove()"></app-button>
+    </div>
+    <div class="col-auto">
+      <app-button textButton="Não" class="float-end" (click)="closeModal()"></app-button>
+    </div>
+  </div>
+</div>

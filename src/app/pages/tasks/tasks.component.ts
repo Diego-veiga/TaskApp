@@ -7,6 +7,7 @@ import { Task } from '../../interfaces/task';
 import { TaskService } from '../../services/task.service';
 import { ModalViewTaskComponent } from './modal-view-task/modal-view-task.component';
 import { ModalCreateEditTaskComponent } from './modal-create-edit-task/modal-create-edit-task.component';
+import { ModalDeleteTaskComponent } from './modal-delete-task/modal-delete-task.component';
 
 @Component({
   selector: 'app-tasks',
@@ -77,6 +78,12 @@ export class TasksComponent {
   }
 
   openModalDeleteTask(task: Task) {
-    console.log('**************openModalDeleteTask');
+    this.modal.open(ModalDeleteTaskComponent, {
+      width: '600px',
+      height: '200px',
+      data: task,
+    })
+    .afterClosed()
+    .subscribe(() => this.ngOnInit());
   }
 }

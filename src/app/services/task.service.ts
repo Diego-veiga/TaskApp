@@ -10,7 +10,7 @@ import { format, isBefore, parse, startOfDay } from 'date-fns';
 export class TaskService {
   constructor(private requestService: HttpRequestService) {}
 
-  async create(task: Task) {
+  async create(task: Task): Promise<{ success: boolean; message?: string }> {
     try {
       this.validate(task);
       await this.requestService.post(`${environment.apiUrl}/Tasks`, task);
@@ -20,7 +20,7 @@ export class TaskService {
     }
   }
 
-  validate(task: Task) {
+  validate(task: Task): void {
     const today = startOfDay(new Date());
     const expected = parse(
       task.expectedCompletionDate,
@@ -37,7 +37,7 @@ export class TaskService {
     }
   }
 
-  async getAll() {
+  async getAll(): Promise<Task[]> {
     const tasks = await this.requestService.get<Task[]>(
       `${environment.apiUrl}/Tasks`
     );
@@ -51,17 +51,13 @@ export class TaskService {
     }));
   }
 
-  getById() {
-    console.log('******incluir Chamada do axios ');
-  }
-
-  async update(id: string, status: number) {
+  async update(id: string, status: number): Promise<void> {
     await this.requestService.patch(`${environment.apiUrl}/Tasks/${id}`, {
       status,
     });
   }
 
-  delete() {
-    console.log('******incluir Chamada do axios ');
+  async delete(id: string): Promise<void> {
+    await this.requestService.delete(`${environment.apiUrl}/Tasks/${id}`);
   }
 }

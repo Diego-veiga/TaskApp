@@ -33,4 +33,9 @@ export class HttpRequestService {
     const response = await axios.patch(`${url}`, body);
     return response.data;
   }
+
+  async delete<T>(url: string): Promise<any> {
+    const response = await axios.delete(`${url}`);
+    return response.data;
+  }
 }
