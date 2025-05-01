@@ -34,8 +34,7 @@ export class TasksComponent {
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+
     this.paginator._intl.itemsPerPageLabel = 'Itens por página';
   }
 
