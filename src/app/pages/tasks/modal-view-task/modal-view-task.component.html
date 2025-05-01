@@ -1,0 +1,20 @@
+<div class="container-fluid p-3">
+  <mat-icon class="float-end hover" (click)="closeModal()">close</mat-icon>
+
+  <h1 class="titulo">Detalhes da tarefa</h1>
+  <h2 class="subtitulo">Tenha uma visão mais detalhada desta tarefa</h2>
+  <div class="row mt-3">
+    <div class="col-6">
+      <h4 class="titulo-informacao">Título</h4>
+      <p class="informacao">{{task.title}}</p>
+    </div>
+    <div class="col-6">
+      <h4 class="titulo-informacao">Data prevista para conclusão</h4>
+      <p class="informacao">{{task.expectedCompletionDate}}</p>
+    </div>
+    <div class="col-12">
+      <h4 class="titulo-informacao">Descrição</h4>
+      <p class="informacao">{{task.description}}</p>
+    </div>
+  </div>
+</div>

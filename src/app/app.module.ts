@@ -16,12 +16,14 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatSelectModule} from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalViewTaskComponent } from './pages/tasks/modal-view-task/modal-view-task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ButtonComponent,
     TasksComponent,
+    ModalViewTaskComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { Task } from '../../interfaces/task';
 import { TaskService } from '../../services/task.service';
+import { ModalViewTaskComponent } from './modal-view-task/modal-view-task.component';
 
 @Component({
   selector: 'app-tasks',
@@ -26,7 +27,6 @@ export class TasksComponent {
   constructor(private TaskService: TaskService, public modal: MatDialog) {}
 
   async ngOnInit() {
-    debugger
     const tasks = await this.TaskService.getAll();
     this.dataSource = new MatTableDataSource(tasks);
     this.dataSource.paginator = this.paginator;
@@ -34,7 +34,6 @@ export class TasksComponent {
   }
 
   ngAfterViewInit() {
-
     this.paginator._intl.itemsPerPageLabel = 'Itens por página';
   }
 
@@ -45,22 +44,23 @@ export class TasksComponent {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-
-
   }
 
-   openModalViewTask(task: Task) {
-    console.log('**************openModalViewTask')
+  openModalViewTask(task: Task) {
+    this.modal.open(ModalViewTaskComponent, {
+      width: '700px',
+      height: '330px',
+      data: task,
+    });
   }
   openModalCreateTask() {
-
-    console.log('**************openModalCreateTask')
+    console.log('**************openModalCreateTask');
   }
   openModalDeleteTask(task: Task) {
-    console.log('**************openModalDeleteTask')
+    console.log('**************openModalDeleteTask');
   }
 
   openModalEditTask(task: Task) {
-    console.log('**************openModalDeleteTask')
+    console.log('**************openModalDeleteTask');
   }
 }
