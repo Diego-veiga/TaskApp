@@ -6,7 +6,7 @@ Este projeto foi desenvolvido como parte de um desafio técnico, com o objetivo 
 
 A aplicação permite ao usuário criar, visualizar, atualizar e excluir tarefas, com informações como título, descrição e data de conclusão prevista. As tarefas são listadas de forma organizada por status (pendentes e concluídas), e o status pode ser alterado conforme a necessidade do usuário.
 
-Este projeto consome uma API desenvolvida em C# com banco de dados Microsoft SQL Server, conforme especificado no desafio, e está disponível publicamente no GitHub para avaliação.
+Este projeto consome uma API desenvolvida em C# com banco de dados Microsoft SQL Server, conforme especificado no desafio, e está disponível publicamente no [GitHub](https://github.com/Diego-veiga/TaskManagerAPI) para avaliação.
 
 
 
