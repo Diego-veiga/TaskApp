@@ -28,4 +28,9 @@ export class HttpRequestService {
       .put(`${url}`, body);
     return response.data;
   }
+
+  async patch<T>(url: string, body?: any): Promise<any> {
+    const response = await axios.patch(`${url}`, body);
+    return response.data;
+  }
 }

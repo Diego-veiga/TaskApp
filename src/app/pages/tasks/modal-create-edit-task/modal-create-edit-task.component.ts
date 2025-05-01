@@ -84,9 +84,10 @@ export class ModalCreateEditTaskComponent {
 
   update() {
     const taskForm = this.formTask.getRawValue();
+    const { id } = this.data;
+    const { status } = taskForm;
 
-
-    this.taskServices.update();
+    this.taskServices.update(id, status);
     this.closeModal();
   }
 

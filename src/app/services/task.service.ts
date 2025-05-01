@@ -4,7 +4,6 @@ import { environment } from '../../environments/environment.development';
 import { HttpRequestService } from './http-request.service';
 import { format } from 'date-fns';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -12,40 +11,39 @@ export class TaskService {
   constructor(private requestService: HttpRequestService) {}
 
   async create(task: Task) {
-    try
-    {
+    try {
       this.validate(task);
       await this.requestService.post(`${environment.apiUrl}/Tasks`, task);
       return { success: true };
-    }
-    catch (err: any)
-    {
+    } catch (err: any) {
       return { success: false, message: err.message };
     }
   }
 
-  validate(task: Task)
-  {
+  validate(task: Task) {
     const actualDate = new Date();
     const expected = new Date(task.expectedCompletionDate);
 
-    if (!task || !task.description || !task.title)
-    {
-      throw new Error("Task inválida");
+    if (!task || !task.description || !task.title) {
+      throw new Error('Task inválida');
     }
 
-    if (expected.getTime() < actualDate.getTime())
-    {
-      throw new Error("Data inválida");
+    if (expected.getTime() < actualDate.getTime()) {
+      throw new Error('Data inválida');
     }
   }
 
   async getAll() {
-    const tasks = await this.requestService.get<Task[]>(`${environment.apiUrl}/Tasks`);
+    const tasks = await this.requestService.get<Task[]>(
+      `${environment.apiUrl}/Tasks`
+    );
 
     return tasks.map((task: Task) => ({
       ...task,
-      expectedCompletionDate: format(new Date(task.expectedCompletionDate), 'dd/MM/yyyy')
+      expectedCompletionDate: format(
+        new Date(task.expectedCompletionDate),
+        'dd/MM/yyyy'
+      ),
     }));
   }
 
@@ -53,8 +51,10 @@ export class TaskService {
     console.log('******incluir Chamada do axios ');
   }
 
-  update() {
-    console.log('******incluir Chamada do axios ');
+  async update(id: string, status: number) {
+    await this.requestService.patch(`${environment.apiUrl}/Tasks/${id}`, {
+      status,
+    });
   }
 
   delete() {
