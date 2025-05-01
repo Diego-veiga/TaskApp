@@ -16,7 +16,7 @@ Este projeto consome uma API desenvolvida em C# com banco de dados Microsoft SQL
 
 - [Pré-requisitos](#requisito)
 - [Execução do projeto](#execucao)
-- [Funcionalidade](#funcionalidade)
+- [Funcionalidades](#funcionalidade)
 - [Tecnologias](#tecnologias)
 - [Autor](#autor)
 <!--te-->
